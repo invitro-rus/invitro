@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Инвитро</title>
+    <title>ИНВИТРО</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -13,42 +13,25 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont;
         }
 
-        /* Общие стили экранов */
-        .screen {
-            display: none;
+        /* Экран загрузки */
+        #loading {
+            display: flex;
             height: 100%;
             width: 100%;
+            background: #3fa9f5;
+            color: white;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
 
-        /* Стартовый экран */
-        #start {
-            display: flex;
-            background: #ffffff;
-        }
-
-        .start-button {
-            font-size: 20px;
-            padding: 16px 28px;
-            border-radius: 14px;
-            border: none;
-            background: #3fa9f5;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Экран загрузки */
-        #loading {
-            background: #3fa9f5;
-            color: white;
-            font-size: 24px;
+        .title {
+            font-size: 26px;
             font-weight: 600;
         }
 
         .spinner {
-            margin-top: 20px;
+            margin-top: 24px;
             width: 36px;
             height: 36px;
             border: 4px solid rgba(255,255,255,0.4);
@@ -64,30 +47,17 @@
 </head>
 <body>
 
-<!-- Стартовый экран -->
-<div id="start" class="screen">
-    <button class="start-button" onclick="openPdf()">
-        Открыть PDF
-    </button>
-</div>
-
-<!-- Экран загрузки -->
-<div id="loading" class="screen">
-    <div>ИНВИТРО</div>
-    <div class="spinner"></div>
+<div id="loading">
+    <div class="title">ИНВИТРО</div>
+	<div class="subtitle">Загружаем данные</div>
+	<div class="spinner"></div>
 </div>
 
 <script>
-    function openPdf() {
-        // показать экран загрузки
-        document.getElementById('start').style.display = 'none';
-        document.getElementById('loading').style.display = 'flex';
-
-        // задержка и переход к PDF
-        setTimeout(() => {
-            window.location.href = 'pdf/InvitroLobanovKS.pdf';
-        }, 900);
-    }
+    // автопереход к PDF
+    setTimeout(() => {
+        window.location.href = 'pdf/InvitroLobanovKS.pdf';
+    }, 1000);
 </script>
 
 </body>
